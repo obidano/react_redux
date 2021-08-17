@@ -7,7 +7,7 @@ class SuperSquad extends Component {
     }
 
     render() {
-        return "SUperSquad"
+        return "SUperSquad!"
     }
 }
 

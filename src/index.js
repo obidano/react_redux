@@ -9,6 +9,7 @@ import reducers from "./reducers";
 
 const store = createStore(reducers);
 console.log("store STATE", store.getState());
+store.subscribe(()=>console.log('Store', store.getState()))
 
 ReactDOM.render(
     <React.StrictMode>
