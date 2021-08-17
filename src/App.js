@@ -2,13 +2,15 @@ import './styles/App.css';
 import React, {Component} from "react";
 import {Button, Col, Form, FormControl, Row} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SuperSquad from "./supersquad/SuperSquad";
 
 class App extends Component {
 
     constructor() {
         super();
         this.state = {
-            newDate: ''
+            newDate: '',
+            birthday: '1990-04-10'
         }
     }
 
@@ -17,14 +19,17 @@ class App extends Component {
         this.setState({newDate: value})
     }
 
-    submitData(){
+    submitData() {
         console.log(this.state.newDate)
+        this.setState({birthday: this.state.newDate})
     }
 
     render() {
         return (
-            <div className='container'>
-                <Form inline>
+            <div className='container mt-3'>
+                <SuperSquad/>
+
+                {/* <Form inline>
 
                     <Row>
                         <Col className="col-md-6 mx-auto">
@@ -34,7 +39,7 @@ class App extends Component {
                             <FormControl type="date"
                                          onChange={this.onChange.bind(this)}
                             />
-                            <Button className='mt-3' onClick={()=> this.submitData()}>
+                            <Button className='mt-3' onClick={() => this.submitData()}>
                                 Submit
                             </Button>
                         </Col>
@@ -43,7 +48,7 @@ class App extends Component {
                     </Row>
 
 
-                </Form>
+                </Form>*/}
 
 
             </div>
