@@ -4,13 +4,14 @@ import './styles/index.css';
 import App from './App';
 import {Provider} from "react-redux";
 import {createStore} from "redux";
-import reducers from "./reducers";
+import {rootReducers} from "./reducers/reducers";
 // import reportWebVitals from './reportWebVitals';
 
-const store = createStore(reducers);
-console.log("store STATE", store.getState());
-store.subscribe(()=>console.log('Store', store.getState()))
-
+const store = createStore(rootReducers);
+console.log("INITIAL store STATE", store.getState());
+store.subscribe(() => console.log('Store', store.getState()))
+// store.dispatch(MyActions.addCharacterById(1))
+// store.dispatch(MyActions.createCharacter(1))
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
