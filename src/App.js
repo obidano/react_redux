@@ -5,17 +5,36 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            newDate: ''
+        }
+    }
+
+    onChange(e) {
+        const {value} = e.target;
+        this.setState({newDate: value})
+    }
+
+    submitData(){
+        console.log(this.state.newDate)
+    }
 
     render() {
         return (
             <div className='container'>
                 <Form inline>
-                    <h2>Saisir votre date d'anniversaire</h2>
+
                     <Row>
-                        <Col className="col-md-5 mx-auto">
+                        <Col className="col-md-6 mx-auto">
+
+                            <h2 className='mb-4'>Saisir votre date d'anniversaire</h2>
+
                             <FormControl type="date"
+                                         onChange={this.onChange.bind(this)}
                             />
-                            <Button className='mt-3'>
+                            <Button className='mt-3' onClick={()=> this.submitData()}>
                                 Submit
                             </Button>
                         </Col>
@@ -30,6 +49,8 @@ class App extends Component {
             </div>
         );
     }
+
+
 }
 
 export default App;
