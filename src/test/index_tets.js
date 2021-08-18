@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import {createStore} from "redux";
-import app from "./reducers/app";
+import './styles/index.css';
+import App from '../App';
 import {Provider} from "react-redux";
+import {createStore} from "redux";
+import {rootReducers} from "./reducers/reducers";
+// import reportWebVitals from './reportWebVitals';
 
-const store = createStore(app)
-
+const store = createStore(rootReducers);
+console.log("INITIAL store STATE", store.getState());
+store.subscribe(() => console.log('Store', store.getState()))
+// store.dispatch(MyActions.addCharacterById(1))
+// store.dispatch(MyActions.createCharacter(1))
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <App/>
         </Provider>
+
     </React.StrictMode>,
     document.getElementById('root')
 );

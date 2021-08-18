@@ -1,61 +1,45 @@
-import './styles/App.css';
-import React, {Component} from "react";
-import {Button, Col, Form, FormControl, Row} from "react-bootstrap";
+import './test/styles/App.css';
+import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SuperSquad from "./supersquad/SuperSquad";
+import Users from "./pages/users";
+import Home from "./pages/home";
 
-class App extends Component {
+const App = (props) => {
+    return <Router>
+        <div>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                        <Link to="/users">Users</Link>
+                    </li>
+                </ul>
+            </nav>
 
-    constructor() {
-        super();
-        this.state = {
-            newDate: '',
-            birthday: '1990-04-10'
-        }
-    }
-
-    onChange(e) {
-        const {value} = e.target;
-        this.setState({newDate: value})
-    }
-
-    submitData() {
-        console.log(this.state.newDate)
-        this.setState({birthday: this.state.newDate})
-    }
-
-    render() {
-        return (
-            <div className='container mt-3'>
-                <SuperSquad/>
-
-                {/* <Form inline>
-
-                    <Row>
-                        <Col className="col-md-6 mx-auto">
-
-                            <h2 className='mb-4'>Saisir votre date d'anniversaire</h2>
-
-                            <FormControl type="date"
-                                         onChange={this.onChange.bind(this)}
-                            />
-                            <Button className='mt-3' onClick={() => this.submitData()}>
-                                Submit
-                            </Button>
-                        </Col>
-
-
-                    </Row>
-
-
-                </Form>*/}
-
-
-            </div>
-        );
-    }
-
+            {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+            <Switch>
+                <Route path="/users">
+                    <Users />
+                </Route>
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Switch>
+        </div>
+    </Router>
 
 }
 
-export default App;
+export  default  App
