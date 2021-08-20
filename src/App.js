@@ -9,20 +9,21 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Users from "./pages/users";
 import Home from "./pages/home";
+import SuperSquad from "./test/supersquad/SuperSquad";
 
 const App = (props) => {
     return <Router>
         <div>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <ul className="navbar-nav mr-auto">
+                    <li className='nav-item active'>
+                        <Link className='nav-link' to="/">Superheroes</Link>
                     </li>
-                    <li>
-                        <Link to="/about">About</Link>
+                    <li className='nav-item active'>
+                        <Link className='nav-link' to="/home">Home</Link>
                     </li>
-                    <li>
-                        <Link to="/users">Users</Link>
+                    <li className='nav-item active'>
+                        <Link className='nav-link' to="/users">Users</Link>
                     </li>
                 </ul>
             </nav>
@@ -31,10 +32,13 @@ const App = (props) => {
             renders the first one that matches the current URL. */}
             <Switch>
                 <Route path="/users">
-                    <Users />
+                    <Users/>
+                </Route>
+                <Route path="/home">
+                    <Home/>
                 </Route>
                 <Route path="/">
-                    <Home />
+                    <SuperSquad/>
                 </Route>
             </Switch>
         </div>
@@ -42,4 +46,4 @@ const App = (props) => {
 
 }
 
-export  default  App
+export default App

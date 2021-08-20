@@ -1,7 +1,7 @@
 const $state = {
     users: [{id: 0, name: 'Steve'}],
     is_ocnnected:false,
-    uyser_info:null
+    user_info:null
 }
 
 const app = (state = $state, action) => {
