@@ -16,7 +16,7 @@ const Home = (props) => {
 
     const init = async () => {
         setLoading(true)
-        await delay(5000);
+        await delay(1000);
         setLoading(false)
     }
 

@@ -28,19 +28,22 @@ const App = (props) => {
                 </ul>
             </nav>
 
+            <div className="container pt-3">
+                <Switch>
+                    <Route path="/users">
+                        <Users/>
+                    </Route>
+                    <Route path="/home">
+                        <Home/>
+                    </Route>
+                    <Route path="/">
+                        <SuperSquad/>
+                    </Route>
+                </Switch>
+            </div>
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-            <Switch>
-                <Route path="/users">
-                    <Users/>
-                </Route>
-                <Route path="/home">
-                    <Home/>
-                </Route>
-                <Route path="/">
-                    <SuperSquad/>
-                </Route>
-            </Switch>
+
         </div>
     </Router>
 
